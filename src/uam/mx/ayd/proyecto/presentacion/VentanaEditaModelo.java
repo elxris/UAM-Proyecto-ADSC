@@ -307,6 +307,7 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Es necesario llenar todos los campos");
         }
         try{
+            int id2 = Integer.parseInt(txt_BuscaModelo.getText());
             int id = Integer.parseInt(txt_Id.getText());
             String descripcion = txt_Descripcion.getText();
             double precio = Double.parseDouble(txt_Precio.getText());
@@ -318,7 +319,7 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Verifico el precio");
             if(piezas <= 0)
                 JOptionPane.showMessageDialog(null, "Verifique el número de piezas");
-            controlC.editaModelo(id, descripcion, precio, color, talla, piezas, oferta);
+            controlC.editaModelo(id, descripcion, precio, color, talla, piezas, oferta, id2);
         }
         catch(NumberFormatException E){
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");

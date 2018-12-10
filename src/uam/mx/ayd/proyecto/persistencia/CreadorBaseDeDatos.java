@@ -16,6 +16,7 @@ public class CreadorBaseDeDatos {
                     + "descripcion varchar (40), precio double, color varchar(20), "
                     + "talla varchar(10), piezas int, oferta boolean)");
             System.out.println("Taba Modelos creada");
+            //statement.execute("create table Ventas(ID venta INTEGER PRYMARY KEY not null,"        + "")
             ManejadorBD.termina();
         }
         catch(Exception ex){

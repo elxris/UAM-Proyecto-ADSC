@@ -214,7 +214,7 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
         txt_Piezas.setText("");
         grupo_Oferta.clearSelection();
         this.setVisible(false);
-        //controlC
+        controlC.ventanaAdministrarC();
     }//GEN-LAST:event_btn_RegresarActionPerformed
 
     /**

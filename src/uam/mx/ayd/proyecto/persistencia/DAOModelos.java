@@ -14,8 +14,9 @@ public class DAOModelos {
     public boolean altaModelo(Modelo m){
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();
-            st.execute("insert into Modelos values(" + m.getId() + ",'" + m.getDescripcion() + "'," + 
-                    m.getPrecio() + ",'" + m.getColor() + "','" + m.getTalla() + "'," + m.getNumeropzs() +"," + m.isOferta() + ")");
+            st.executeUpdate("INSERT INTO Modelos VALUES (IDmodelo, descripcion, precio, color, talla, piezas, oferta)"
+                    + "VALUES ("+m.getId()+",'"+ m.getDescripcion()+"',"+m.getPrecio()+",'"+m.getColor()+"','" + 
+                            m.getTalla()+"',"+m.getNumeropzs()+","+m.isOferta()+")"); 
             return true;
         }
         catch (SQLException e){
@@ -24,18 +25,22 @@ public class DAOModelos {
         }
     }
     
-    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta) {
+    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta, int id2) {
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();
-            ResultSet rs = st.executeQuery("UPDATE Modelos SET IDmodelo = " + id + 
-                    ", descripcion = '" + descripcion + ", precio = " + precio + 
-                    ", color = '" + color + ", talla = '" + talla + ", piezas = " + piezas + 
-                    ", oferta = " + oferta + "WHERE IDmodelo = " + id);
+            st.executeUpdate("UPDATE Modelos SET IDmodelo = "+id+",descripcion = '"+descripcion+"',precio = "+precio+",color = '"+
+                    color+"',talla = '"+talla+"',piezas = "+piezas+",oferta = "+oferta+" WHERE IDModelo = "+id2);
+            
+            //ResultSet rs = st.executeQuery("UPDATE Modelos SET IDmodelo = " + id + 
+            //        ", descripcion = '" + descripcion + ", precio = " + precio + 
+            //        ", color = '" + color + ", talla = '" + talla + ", piezas = " + piezas + 
+            //        ", oferta = " + oferta + "WHERE IDmodelo = " + id);
+            return true;
         }
         catch(SQLException e){
             e.printStackTrace();
         }
-        return true;
+        return false;
     }
     
     public boolean bajaModelo(Modelo m){

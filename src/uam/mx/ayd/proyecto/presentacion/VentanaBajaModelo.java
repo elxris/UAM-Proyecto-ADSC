@@ -132,6 +132,11 @@ public class VentanaBajaModelo extends javax.swing.JFrame {
 
         btn_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_Regresar.setText("Regresar");
+        btn_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegresarActionPerformed(evt);
+            }
+        });
 
         btn_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_Eliminar.setText("Eliminar");
@@ -201,6 +206,11 @@ public class VentanaBajaModelo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al eliminar el modelo");
         }
     }//GEN-LAST:event_btn_EliminarActionPerformed
+
+    private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
+        setVisible(false);
+        controlC.muestraVentanaAdministrarC();
+    }//GEN-LAST:event_btn_RegresarActionPerformed
 
     /**
      * @param args the command line arguments
