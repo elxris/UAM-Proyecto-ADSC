@@ -47,6 +47,17 @@ public class DAOModelos {
             return true;
     }
     
+    public boolean bajaModelo(int id){
+        try{
+            Statement st = ManejadorBD.dameConexion().createStatement();
+            ResultSet rs = st.executeQuery("DELETE * FROM Modelos WHERE IDModelo = " + id);
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return true;
+    }
+    
     public int cuantosModelos(){
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();

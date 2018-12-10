@@ -192,12 +192,13 @@ public class VentanaBajaModelo extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_BuscarActionPerformed
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
-        //Modelo m;
-        
         int id = Integer.parseInt(txt_Id.getText());
         
         if(controlC.bajaModelo(id)){
-            
+            JOptionPane.showMessageDialog(null, "Modelo eliminado");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al eliminar el modelo");
         }
     }//GEN-LAST:event_btn_EliminarActionPerformed
 

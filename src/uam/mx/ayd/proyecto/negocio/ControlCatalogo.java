@@ -27,6 +27,11 @@ public class ControlCatalogo {
         Modelo m;
         m = dao.buscaModelo(id);
         
-        return null;
+        return m;
+    }
+
+    public boolean bajaModelo(int id) {
+        dao.bajaModelo(id);
+        return true;
     }
 }
