@@ -15,7 +15,7 @@ public class DAOModelos {
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();
             st.execute("insert into Modelos values(" + m.getId() + ",'" + m.getDescripcion() + "'," + 
-                    m.getPrecio() + ",'" + m.getColor() + "'," + m.getTalla() + "'," + m.getNumeropzs() + m.isOferta() + ")");
+                    m.getPrecio() + ",'" + m.getColor() + "','" + m.getTalla() + "'," + m.getNumeropzs() +"," + m.isOferta() + ")");
             return true;
         }
         catch (SQLException e){
