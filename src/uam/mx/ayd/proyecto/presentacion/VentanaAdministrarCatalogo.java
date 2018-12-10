@@ -5,17 +5,27 @@
  */
 package uam.mx.ayd.proyecto.presentacion;
 
+import proyectoadsc.ProyectoADSC;
+import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
+
 /**
  *
  * @author Omar JRZ
  */
 public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
-
+    private ControlCatalogo controlC;
+    
+    
     /**
      * Creates new form VentanaAdministrarCatalogo
      */
-    public VentanaAdministrarCatalogo() {
+    
+    
+    public VentanaAdministrarCatalogo(ControlCatalogo controlC) {
+        this.controlC = controlC;
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Administración De Catálogo");
     }
 
     /**
@@ -27,21 +37,66 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_altaModelo = new javax.swing.JButton();
+        btn_editaModelo = new javax.swing.JButton();
+        btn_bajaModelo = new javax.swing.JButton();
+        btn_Regresar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btn_altaModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_altaModelo.setText("Agregar Modelo");
+        btn_altaModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_altaModeloActionPerformed(evt);
+            }
+        });
+
+        btn_editaModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_editaModelo.setText("Edita Modelo");
+
+        btn_bajaModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_bajaModelo.setText("Elimina Modelo");
+
+        btn_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_Regresar.setText("Regresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btn_altaModelo)
+                .addGap(49, 49, 49)
+                .addComponent(btn_editaModelo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(btn_bajaModelo)
+                .addGap(28, 28, 28))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Regresar)
+                .addGap(206, 206, 206))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_altaModelo)
+                    .addComponent(btn_editaModelo)
+                    .addComponent(btn_bajaModelo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(btn_Regresar)
+                .addGap(44, 44, 44))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_altaModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_altaModeloActionPerformed
+        controlC.ventanaAlta();
+    }//GEN-LAST:event_btn_altaModeloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,11 +128,15 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAdministrarCatalogo().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Regresar;
+    private javax.swing.JButton btn_altaModelo;
+    private javax.swing.JButton btn_bajaModelo;
+    private javax.swing.JButton btn_editaModelo;
     // End of variables declaration//GEN-END:variables
 }
