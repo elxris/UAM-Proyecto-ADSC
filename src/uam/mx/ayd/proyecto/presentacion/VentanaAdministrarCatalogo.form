@@ -74,6 +74,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Edita Modelo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_editaModeloActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_bajaModelo">
       <Properties>
@@ -82,6 +85,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Elimina Modelo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_bajaModeloActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Regresar">
       <Properties>

@@ -208,8 +208,12 @@ public class VentanaBajaModelo extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_EliminarActionPerformed
 
     private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
+        txt_BuscaId.setText("");
+        txt_Id.setText("");
+        txt_Descripcion.setText("");
+        txt_Precio.setText("");
         setVisible(false);
-        controlC.muestraVentanaAdministrarC();
+        controlC.ventanaAdministrarC();
     }//GEN-LAST:event_btn_RegresarActionPerformed
 
     /**

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uam.mx.ayd.proyecto.presentacion;
 
 import proyectoadsc.ProyectoADSC;
@@ -54,9 +49,19 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
 
         btn_editaModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_editaModelo.setText("Edita Modelo");
+        btn_editaModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editaModeloActionPerformed(evt);
+            }
+        });
 
         btn_bajaModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_bajaModelo.setText("Elimina Modelo");
+        btn_bajaModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_bajaModeloActionPerformed(evt);
+            }
+        });
 
         btn_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_Regresar.setText("Regresar");
@@ -97,6 +102,14 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
     private void btn_altaModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_altaModeloActionPerformed
         controlC.ventanaAlta();
     }//GEN-LAST:event_btn_altaModeloActionPerformed
+
+    private void btn_editaModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editaModeloActionPerformed
+        controlC.ventanaEdita();
+    }//GEN-LAST:event_btn_editaModeloActionPerformed
+
+    private void btn_bajaModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bajaModeloActionPerformed
+        controlC.ventanaBaja();
+    }//GEN-LAST:event_btn_bajaModeloActionPerformed
 
     /**
      * @param args the command line arguments

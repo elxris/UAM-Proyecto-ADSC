@@ -225,6 +225,11 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
 
         bnt_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bnt_Regresar.setText("Regresar");
+        bnt_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnt_RegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -325,6 +330,18 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");
         }
     }//GEN-LAST:event_btn_AceptarActionPerformed
+
+    private void bnt_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_RegresarActionPerformed
+        txt_Id.setText("");
+        txt_Descripcion.setText("");
+        txt_Precio.setText("");
+        txt_Color.setText("");
+        txt_Talla.setText("");
+        txt_Piezas.setText("");
+        grupo_Oferta.clearSelection();
+        setVisible(false);
+        controlC.ventanaAdministrarC();
+    }//GEN-LAST:event_bnt_RegresarActionPerformed
 
     /**
      * @param args the command line arguments
