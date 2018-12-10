@@ -24,8 +24,17 @@ public class DAOModelos {
         }
     }
     
-    public boolean editaModelo(){
-        
+    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta) {
+        try{
+            Statement st = ManejadorBD.dameConexion().createStatement();
+            ResultSet rs = st.executeQuery("UPDATE Modelos SET IDmodelo = " + id + 
+                    ", descripcion = '" + descripcion + ", precio = " + precio + 
+                    ", color = '" + color + ", talla = '" + talla + ", piezas = " + piezas + 
+                    ", oferta = " + oferta + "WHERE IDmodelo = " + id);
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
         return true;
     }
     
@@ -85,5 +94,7 @@ public class DAOModelos {
         }
         return m;
     }
+
+    
     
 }

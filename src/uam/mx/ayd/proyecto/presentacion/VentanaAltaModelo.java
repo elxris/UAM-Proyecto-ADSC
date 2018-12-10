@@ -203,8 +203,6 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
         catch(NumberFormatException E){
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");
         }
-        
-        
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed

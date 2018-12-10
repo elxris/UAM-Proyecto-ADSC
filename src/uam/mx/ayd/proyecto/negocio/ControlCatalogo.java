@@ -34,4 +34,11 @@ public class ControlCatalogo {
         dao.bajaModelo(id);
         return true;
     }
+
+    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta) {
+        if(!dao.editaModelo(id, descripcion, precio, color, talla, piezas, oferta))
+            return true;
+        return false;
+                    
+    }
 }
