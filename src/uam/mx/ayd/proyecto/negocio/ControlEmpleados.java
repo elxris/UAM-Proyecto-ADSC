@@ -11,6 +11,6 @@ package uam.mx.ayd.proyecto.negocio;
  */
 public class ControlEmpleados {
     
- 
+    
     
 }
