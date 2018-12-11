@@ -90,7 +90,7 @@ public class DAOModelos {
             ResultSet rs = st.executeQuery("SELECT * FROM Modelos WHERE IDmodelo = " + id);
             if (rs.next()) {
                 m = new Modelo(rs.getInt("IDmodelo"), rs.getString("descripcion"), rs.getInt("precio"),
-                        rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"));
+                        rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"), rs.getInt("tiempo"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,7 +105,7 @@ public class DAOModelos {
             ResultSet rs = st.executeQuery("SELECT * FROM Modelos");
             while (rs.next()) {
                 Modelo m = new Modelo(rs.getInt("IDmodelo"), rs.getString("descripcion"), rs.getInt("precio"),
-                        rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"));
+                        rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"), rs.getInt("tiempo"));
                 list.add(m);
             }
             return list.toArray(new Modelo[list.size()]);

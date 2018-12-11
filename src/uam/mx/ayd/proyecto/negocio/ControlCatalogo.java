@@ -6,6 +6,7 @@ import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarCatalogo;
 import uam.mx.ayd.proyecto.presentacion.VentanaAltaModelo;
 import uam.mx.ayd.proyecto.presentacion.VentanaBajaModelo;
+import uam.mx.ayd.proyecto.presentacion.VentanaConsultarPrecio;
 import uam.mx.ayd.proyecto.presentacion.VentanaEditaModelo;
 
 public class ControlCatalogo {
@@ -14,6 +15,10 @@ public class ControlCatalogo {
     
     public ControlCatalogo(DAOModelos dao){
         this.dao = dao;
+    }
+
+    public ControlCatalogo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void ventanaAdministrarC() {
@@ -36,8 +41,12 @@ public class ControlCatalogo {
         ventanaB.setVisible(true);
     }
     
-    public boolean altaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, String regla) {
-        Modelo m = new Modelo(id, descripcion, precio, color, talla, piezas, regla);
+    public void ventanaConsultaPrecio(){
+        VentanaConsultarPrecio ventanaC = new VentanaConsultarPrecio(this);
+        ventanaC.setVisible(true);
+    }
+    public boolean altaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, String regla, int tiempo) {
+        Modelo m = new Modelo(id, descripcion, precio, color, talla, piezas, regla, tiempo);
         if(!dao.altaModelo(m))
             return true;
         return false;
@@ -49,7 +58,9 @@ public class ControlCatalogo {
         
         return m;
     }
+    
     public double damePrecio (int id){
+        
         Modelo m;
         m = this.buscaModelo(id);
         double precio = m.getPrecio();
@@ -71,10 +82,5 @@ public class ControlCatalogo {
     public void defineRegla(Modelo m, String regla) {
         dao.defineRegla(m, regla);
     }
-
-    
-
-    
-
-    
+     
 }

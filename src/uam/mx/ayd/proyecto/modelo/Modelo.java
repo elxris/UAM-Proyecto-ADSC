@@ -12,9 +12,10 @@ public class Modelo {
     private String talla;
     private int numeropzs;
     private String reglaventa;
+    private int tiempoInventario;
     
     
-    public Modelo(int id, String descripcion, double precio, String color, String talla, int numeropzs, String reglaventa){
+    public Modelo(int id, String descripcion, double precio, String color, String talla, int numeropzs, String reglaventa, int tiempo){
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -22,7 +23,8 @@ public class Modelo {
         this.talla = talla;
         this.numeropzs = numeropzs;
         this.reglaventa = reglaventa;
-    }
+        this.tiempoInventario = tiempo;
+    }   
 
     public int getId() {
         return id;
@@ -78,5 +80,13 @@ public class Modelo {
 
     public void setReglaventa(String reglaventa) {
         this.reglaventa = reglaventa;
+    }
+    
+    public int getTiempoInventario(){
+        return tiempoInventario;
+    }
+    
+    public void setTiempoInventario(int tiempo){
+        this.tiempoInventario = tiempo;
     }
 }
