@@ -1,10 +1,9 @@
+package uam.mx.ayd.proyecto.persistencia;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import uam.mx.ayd.proyecto.modelo.Empleado;
 import uam.mx.ayd.proyecto.modelo.Usuario;
-import uam.mx.ayd.proyecto.persistencia.ManejadorBD;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,9 +19,9 @@ public class DAOEmpleados {
     public boolean altaEmpleado(Usuario usuario) {
         try {
             Statement st = ManejadorBD.dameConexion().createStatement();
-            st.executeUpdate("INSERT INTO Usuarios VALUES (usuario, contrasena, nombre, rfc, telefono, isAdmin)"
-                    + "VALUES (" + usuario.getUsuario() + ",'" + usuario.getContrasena() + "'," + usuario.getNombre() + ",'" + usuario.getRFC() + "','"
-                    + usuario.getTelefono() + "'," + usuario.isAdmin() + "')");
+            st.executeUpdate("INSERT INTO Usuarios (usuario, contrasena, nombre, rfc, telefono, isAdmin) VALUES ('"
+                    + usuario.getUsuario() + "','" + usuario.getContrasena() + "','" + usuario.getNombre() + "','" + usuario.getRFC() + "','"
+                    + usuario.getTelefono() + "'," + usuario.isAdmin() + ")");
 
             return true;
         } catch (SQLException e) {

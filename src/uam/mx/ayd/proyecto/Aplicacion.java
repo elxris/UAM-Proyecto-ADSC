@@ -6,7 +6,9 @@
 package uam.mx.ayd.proyecto;
 
 import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
+import uam.mx.ayd.proyecto.negocio.ControlEmpleados;
 import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
+import uam.mx.ayd.proyecto.persistencia.DAOEmpleados;
 import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarCatalogo;
 import uam.mx.ayd.proyecto.presentacion.VentanaCantidadPrecio;
@@ -19,6 +21,7 @@ import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 public class Aplicacion {
     
     DAOModelos modelos;
+    DAOEmpleados empleados;
     ControlCatalogo controlC;
     
     public static void main(String [] args){
@@ -29,6 +32,7 @@ public class Aplicacion {
     
     public Aplicacion() {
         modelos = new DAOModelos();
+        empleados = new DAOEmpleados();
     }
     
     public void inicia() {
@@ -55,5 +59,9 @@ public class Aplicacion {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public void abreAdministrarEmpleados() {
+        ControlEmpleados control = new ControlEmpleados(empleados);
+        control.despliegaVentanaAdministrarUsuarios();
+    }
     
 }

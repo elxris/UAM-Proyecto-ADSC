@@ -104,6 +104,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuAdministracion.setText("Administración");
 
         jMenuItemAdministraEmpleados.setText("Administra Empleados");
+        jMenuItemAdministraEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAdministraEmpleadosActionPerformed(evt);
+            }
+        });
         jMenuAdministracion.add(jMenuItemAdministraEmpleados);
 
         jMenuItemReporteGanancias.setText("Reporte Ganancias");
@@ -174,6 +179,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         aplicacion.definePrecioCantidad();
     }//GEN-LAST:event_jMenuItemPrecioCantidadActionPerformed
+
+    private void jMenuItemAdministraEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdministraEmpleadosActionPerformed
+        // TODO add your handling code here:
+        aplicacion.abreAdministrarEmpleados();
+    }//GEN-LAST:event_jMenuItemAdministraEmpleadosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
