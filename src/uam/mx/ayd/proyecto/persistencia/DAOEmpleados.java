@@ -3,6 +3,7 @@ package uam.mx.ayd.proyecto.persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import uam.mx.ayd.proyecto.modelo.Usuario;
 
 /*
@@ -33,7 +34,7 @@ public class DAOEmpleados {
     public boolean bajaEmpleado(Usuario usuario) {
         try {
             Statement st = ManejadorBD.dameConexion().createStatement();
-            st.executeUpdate("DELETE FROM Usuarios WHERE usuario = " + usuario.getUsuario());
+            st.executeUpdate("DELETE FROM Usuarios WHERE usuario = '" + usuario.getUsuario() + "'");
 
             return true;
         } catch (SQLException e) {
@@ -88,5 +89,23 @@ public class DAOEmpleados {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public Usuario[] dameEmpleados() {
+           ArrayList<Usuario> list = new ArrayList<>();
+        try {
+            Statement st = ManejadorBD.dameConexion().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Usuarios");
+            while (rs.next()) {
+                Usuario m = new Usuario(rs.getInt("IDUsuario"), rs.getString("usuario"),
+                        rs.getString("contrasena"), rs.getString("nombre"), rs.getString("rfc"),
+                        rs.getString("telefono"), rs.getBoolean("isAdmin"));
+                list.add(m);
+            }
+            return list.toArray(new Usuario[list.size()]);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new Usuario[0];
     }
 }

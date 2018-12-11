@@ -9,6 +9,7 @@ import uam.mx.ayd.proyecto.persistencia.DAOEmpleados;
 import uam.mx.ayd.proyecto.modelo.Usuario;
 import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarUsuarios;
 import uam.mx.ayd.proyecto.presentacion.VentanaAltaEmpleado;
+import uam.mx.ayd.proyecto.presentacion.VentanaBajaEmpleado;
 
 /**
  *
@@ -35,15 +36,19 @@ public class ControlEmpleados {
     public boolean ediaEmpleado(String usuarioAnterior, Usuario usuario) {
         return dao.editaModelo(usuarioAnterior, usuario);
     }
+    
+    public Usuario[] dameEmpleados() {
+        return dao.dameEmpleados();
+    }
 
     public void despliegaVentanaAltaEmpleado() {
-        usuario = new Usuario("", "", "", "", "", false);
         VentanaAltaEmpleado ventana = new VentanaAltaEmpleado(this);
         ventana.setVisible(true);
     }
     
     public void despliegaVentanaBajaEmpleado() {
-        
+        VentanaBajaEmpleado ventana = new VentanaBajaEmpleado(this);
+        ventana.setVisible(true);
     }
     
     public void despliegaVentanaEditaEmpleado() {

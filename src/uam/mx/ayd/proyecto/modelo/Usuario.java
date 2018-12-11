@@ -94,4 +94,10 @@ public class Usuario {
         this.isAdmin = isAdmin;
     }
 
+    @Override
+    public String toString() {
+        return this.getUsuario()+ ":" +  this.getNombre();//To change body of generated methods, choose Tools | Templates.
+    }
+    
+
 }
