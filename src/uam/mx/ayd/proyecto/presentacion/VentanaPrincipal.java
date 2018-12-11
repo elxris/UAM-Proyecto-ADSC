@@ -5,17 +5,23 @@
  */
 package uam.mx.ayd.proyecto.presentacion;
 
+import java.awt.event.WindowEvent;
+import uam.mx.ayd.proyecto.Aplicacion;
+
 /**
  *
  * @author elxris
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
+    Aplicacion aplicacion;
+    
     /**
      * Creates new form VentanaPrincipal
      */
-    public VentanaPrincipal() {
+    public VentanaPrincipal(Aplicacion a) {
         initComponents();
+        aplicacion = a;
     }
 
     /**
@@ -30,7 +36,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButtonConsultarPrecios = new javax.swing.JButton();
         jButtonRealizarVenta = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar = new javax.swing.JMenuBar();
         jMenuInventario = new javax.swing.JMenu();
         jMenuItemRevisarInventario = new javax.swing.JMenuItem();
         jMenuItemStockMuerto = new javax.swing.JMenuItem();
@@ -42,12 +48,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItemPlanificacionPromos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButtonConsultarPrecios.setText("Consultar Precios");
 
         jButtonRealizarVenta.setText("Realizar Venta");
 
         jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
 
         jMenuInventario.setText("Inventario");
 
@@ -73,7 +89,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItemAdministrarCatalogo.setText("Administrar Catalogo");
         jMenuInventario.add(jMenuItemAdministrarCatalogo);
 
-        jMenuBar1.add(jMenuInventario);
+        jMenuBar.add(jMenuInventario);
 
         jMenuAdministracion.setText("Administración");
 
@@ -86,9 +102,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItemPlanificacionPromos.setText("Planificación Promos");
         jMenuAdministracion.add(jMenuItemPlanificacionPromos);
 
-        jMenuBar1.add(jMenuAdministracion);
+        jMenuBar.add(jMenuAdministracion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,47 +144,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemStockMuertoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaPrincipal().setVisible(true);
-            }
-        });
-    }
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConsultarPrecios;
     private javax.swing.JButton jButtonRealizarVenta;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JMenu jMenuAdministracion;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuInventario;
     private javax.swing.JMenuItem jMenuItemAdministraEmpleados;
     private javax.swing.JMenuItem jMenuItemAdministrarCatalogo;
