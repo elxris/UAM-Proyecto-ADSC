@@ -138,6 +138,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemRevisarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRevisarInventarioActionPerformed
         // TODO add your handling code here:
+        aplicacion.revisarInventario();
     }//GEN-LAST:event_jMenuItemRevisarInventarioActionPerformed
 
     private void jMenuItemStockMuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStockMuertoActionPerformed

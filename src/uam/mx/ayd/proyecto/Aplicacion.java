@@ -5,6 +5,7 @@
  */
 package uam.mx.ayd.proyecto;
 
+import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
 import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 
@@ -29,5 +30,9 @@ public class Aplicacion {
     public void inicia() {
         VentanaPrincipal ventana = new VentanaPrincipal(this);
         ventana.setVisible(true);
+    }
+    
+    public void revisarInventario() {
+        ControlRevisionInventario control = new ControlRevisionInventario(modelos);
     }
 }
