@@ -32,7 +32,7 @@ public class Aplicacion {
         ventana.setVisible(true);
     }
     
-    public void revisarInventario() {
+    public void abreRevisionInventario() {
         ControlRevisionInventario control = new ControlRevisionInventario(modelos);
     }
 }

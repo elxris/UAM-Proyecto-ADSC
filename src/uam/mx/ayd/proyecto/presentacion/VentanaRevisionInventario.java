@@ -5,6 +5,8 @@
  */
 package uam.mx.ayd.proyecto.presentacion;
 
+import java.awt.event.WindowEvent;
+import uam.mx.ayd.proyecto.modelo.Modelo;
 import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
 
 /**
@@ -14,13 +16,30 @@ import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
 public class VentanaRevisionInventario extends javax.swing.JFrame {
 
     ControlRevisionInventario control;
-    
+
     /**
      * Creates new form VentanaRevisionInventario
      */
     public VentanaRevisionInventario(ControlRevisionInventario control) {
         initComponents();
         this.control = control;
+        actualizaProductoMostrado();
+    }
+
+    public void actualizaProductoMostrado() {
+        jLabelPerdidas.setText(String.valueOf(control.damePerdida()));
+        if (!control.haySiguiente()) {
+            jLabelInformacionModelo.setText("No hay más modelos a revisar");
+            jLabelPiezasRegistradas.setText("");
+            jSpinnerPiezas.setValue(0);
+            jSpinnerPiezas.setEnabled(false);
+            jButtonSiguiente.setEnabled(false);
+            return;
+        }
+        Modelo modelo = control.siguiente();
+        jLabelInformacionModelo.setText(modelo.toString());
+        jLabelPiezasRegistradas.setText(String.valueOf(modelo.getNumeropzs()));
+        jSpinnerPiezas.setValue(0);
     }
 
     /**
@@ -46,6 +65,11 @@ public class VentanaRevisionInventario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Revisión Inventario");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabelPiezasRegistradasTitulo.setText("Piezas Registradas:");
 
@@ -62,6 +86,11 @@ public class VentanaRevisionInventario extends javax.swing.JFrame {
         jLabelPiezasTitle.setText("Piezas Reales:");
 
         jButtonSiguiente.setText("Siguiente");
+        jButtonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSiguienteActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +100,11 @@ public class VentanaRevisionInventario extends javax.swing.JFrame {
         });
 
         jButtonTerminar.setText("Terminar y Guardar");
+        jButtonTerminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTerminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,7 +165,26 @@ public class VentanaRevisionInventario extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
+        // TODO add your handling code here:
+        control.verificaProductoActual((int) jSpinnerPiezas.getValue());
+        actualizaProductoMostrado();
+    }//GEN-LAST:event_jButtonSiguienteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButtonTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarActionPerformed
+        // TODO add your handling code here:
+        control.confirmaReporte();
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jButtonTerminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;

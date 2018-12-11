@@ -3,6 +3,7 @@ package uam.mx.ayd.proyecto.persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import uam.mx.ayd.proyecto.modelo.Modelo;
 
 /**
@@ -98,5 +99,22 @@ public class DAOModelos {
             e.printStackTrace();
         }
         return m;
+    }
+    
+    public Modelo[] dameModelos() {
+        ArrayList<Modelo> list = new ArrayList<>();
+        try {
+            Statement st = ManejadorBD.dameConexion().createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Modelos");
+            while(rs.next()) {
+                Modelo m = new Modelo(rs.getInt("IDmodelo"), rs.getString("descripcion"), rs.getInt("precio"),
+                rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"));
+                list.add(m);
+            }
+            return list.toArray(new Modelo[list.size()]);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new Modelo[0];
     }
 }
