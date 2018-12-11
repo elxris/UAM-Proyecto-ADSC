@@ -1,6 +1,7 @@
 package uam.mx.ayd.proyecto.presentacion;
 
 import javax.swing.JOptionPane;
+import uam.mx.ayd.proyecto.Aplicacion;
 import uam.mx.ayd.proyecto.modelo.Modelo;
 import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 
@@ -10,6 +11,7 @@ import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
  */
 public class VentanaCantidadPrecio extends javax.swing.JFrame {
     ControlCatalogo controlC;
+    Aplicacion app;
     Modelo m;
 
     /**
@@ -239,7 +241,7 @@ public class VentanaCantidadPrecio extends javax.swing.JFrame {
         txt_Descripcion.setText("");
         txt_Precio.setText("");
         txt_Regla.setText("");
-        controlC.ventanaAdministrarC();
+        app.inicia();
         setVisible(false);
     }//GEN-LAST:event_btn_RegresarActionPerformed
 
