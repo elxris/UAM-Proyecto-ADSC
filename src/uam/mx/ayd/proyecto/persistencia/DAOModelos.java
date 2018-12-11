@@ -14,9 +14,9 @@ public class DAOModelos {
     public boolean altaModelo(Modelo m){
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();
-            st.executeUpdate("INSERT INTO Modelos VALUES (IDmodelo, descripcion, precio, color, talla, piezas, oferta)"
+            st.executeUpdate("INSERT INTO Modelos VALUES (IDmodelo, descripcion, precio, color, talla, piezas, reglaventa)"
                     + "VALUES ("+m.getId()+",'"+ m.getDescripcion()+"',"+m.getPrecio()+",'"+m.getColor()+"','" + 
-                            m.getTalla()+"',"+m.getNumeropzs()+","+m.isOferta()+")"); 
+                            m.getTalla()+"',"+m.getNumeropzs()+",'"+m.getReglaventa()+"')"); 
             return true;
         }
         catch (SQLException e){
@@ -25,11 +25,11 @@ public class DAOModelos {
         }
     }
     
-    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta, int id2) {
+    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, String regla, int id2) {
         try{
             Statement st = ManejadorBD.dameConexion().createStatement();
             st.executeUpdate("UPDATE Modelos SET IDmodelo = "+id+",descripcion = '"+descripcion+"',precio = "+precio+",color = '"+
-                    color+"',talla = '"+talla+"',piezas = "+piezas+",oferta = "+oferta+" WHERE IDModelo = "+id2);
+                    color+"',talla = '"+talla+"',piezas = "+piezas+",reglaventa = "+regla+" WHERE IDModelo = "+id2);
             
             //ResultSet rs = st.executeQuery("UPDATE Modelos SET IDmodelo = " + id + 
             //        ", descripcion = '" + descripcion + ", precio = " + precio + 
@@ -50,7 +50,7 @@ public class DAOModelos {
             resultado = st.executeUpdate("DELETE FROM Modelos WHERE IDmodelo = '" + m.getId() + 
                     "' AND descripcion = '" + m.getDescripcion() + "' AND precio = '" + m.getPrecio() +
                     "' AND color = '" + m.getColor() + "' AND talla = '" + m.getTalla() +
-                    "' AND numeropzs = '" + m.getNumeropzs() + "' AND oferta = '" + m.isOferta() + "'");
+                    "' AND numeropzs = '" + m.getNumeropzs() + "' AND reglaventa = '" + m.getReglaventa()+ "'");
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -92,7 +92,7 @@ public class DAOModelos {
             ResultSet rs = st.executeQuery("SELECT * FROM Modelos WHERE IDmodelo = " + id);
             if(rs.next())
                 m = new Modelo(rs.getInt("IDmodelo"), rs.getString("descripcion"), rs.getInt("precio"),
-                rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getBoolean("oferta"));
+                rs.getString("color"), rs.getString("talla"), rs.getInt("piezas"), rs.getString("reglaventa"));
         }
         catch(SQLException e){
             e.printStackTrace();

@@ -34,8 +34,8 @@ public class ControlCatalogo {
         ventanaB.setVisible(true);
     }
     
-    public boolean altaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta) {
-        Modelo m = new Modelo(id, descripcion, precio, color, talla, piezas, oferta);
+    public boolean altaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, String regla) {
+        Modelo m = new Modelo(id, descripcion, precio, color, talla, piezas, regla);
         if(!dao.altaModelo(m))
             return true;
         return false;
@@ -53,8 +53,8 @@ public class ControlCatalogo {
         return true;
     }
 
-    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, boolean oferta, int id2) {
-        if(!dao.editaModelo(id, descripcion, precio, color, talla, piezas, oferta, id2))
+    public boolean editaModelo(int id, String descripcion, double precio, String color, String talla, int piezas, String regla, int id2) {
+        if(!dao.editaModelo(id, descripcion, precio, color, talla, piezas, regla, id2))
             return true;
         return false;
                     

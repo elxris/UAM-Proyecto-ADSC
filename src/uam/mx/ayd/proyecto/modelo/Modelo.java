@@ -11,17 +11,17 @@ public class Modelo {
     private String color;
     private String talla;
     private int numeropzs;
-    private boolean oferta;
+    private String reglaventa;
     
     
-    public Modelo(int id, String descripcion, double precio, String color, String talla, int numeropzs, boolean oferta){
+    public Modelo(int id, String descripcion, double precio, String color, String talla, int numeropzs, String reglaventa){
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
         this.color = color;
         this.talla = talla;
         this.numeropzs = numeropzs;
-        this.oferta = oferta;
+        this.reglaventa = reglaventa;
     }
 
     public int getId() {
@@ -72,13 +72,11 @@ public class Modelo {
         this.numeropzs = numeropzs;
     }
 
-    public boolean isOferta() {
-        return oferta;
+    public String getReglaventa() {
+        return reglaventa;
     }
 
-    public void setOferta(boolean oferta) {
-        this.oferta = oferta;
+    public void setReglaventa(String reglaventa) {
+        this.reglaventa = reglaventa;
     }
-
-    
 }

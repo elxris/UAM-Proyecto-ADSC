@@ -29,21 +29,17 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupo_Oferta = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txt_Id = new javax.swing.JTextField();
         txt_Precio = new javax.swing.JTextField();
         txt_Color = new javax.swing.JTextField();
         txt_Talla = new javax.swing.JTextField();
         txt_Piezas = new javax.swing.JTextField();
-        rbtn_Si = new javax.swing.JRadioButton();
-        rbtn_No = new javax.swing.JRadioButton();
         btn_Aceptar = new javax.swing.JButton();
         btn_Regresar = new javax.swing.JButton();
         txt_Descripcion = new javax.swing.JTextField();
@@ -67,15 +63,6 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Número de piezas: ");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("Oferta:");
-
-        grupo_Oferta.add(rbtn_Si);
-        rbtn_Si.setText("Si");
-
-        grupo_Oferta.add(rbtn_No);
-        rbtn_No.setText("No");
 
         btn_Aceptar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_Aceptar.setText("Aceptar");
@@ -109,9 +96,7 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6))
+                                .addComponent(jLabel6)
                                 .addGap(7, 7, 7)))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -124,12 +109,6 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
                     .addComponent(txt_Color)
                     .addComponent(txt_Talla)
                     .addComponent(txt_Piezas)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(rbtn_Si)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(rbtn_No)
-                        .addGap(50, 50, 50))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
                         .addComponent(btn_Regresar))
@@ -163,13 +142,7 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txt_Piezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtn_Si)
-                        .addComponent(rbtn_No)))
-                .addGap(24, 24, 24)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Aceptar)
                     .addComponent(btn_Regresar))
@@ -182,8 +155,7 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
         if(txt_Id.getText().isEmpty() || txt_Descripcion.getText().isEmpty() || 
                 txt_Precio.getText().isEmpty() || txt_Color.getText().isEmpty() ||
-                txt_Talla.getText().isEmpty() || txt_Piezas.getText().isEmpty() ||
-                !rbtn_Si.isSelected() || !rbtn_No.isSelected()){
+                txt_Talla.getText().isEmpty() || txt_Piezas.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Es necesario llenar todos los campos");
         }
         try{
@@ -193,12 +165,12 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
             String color = txt_Color.getText();
             String talla = txt_Talla.getText();
             int piezas = Integer.parseInt(txt_Piezas.getText());
-            boolean oferta = grupo_Oferta.isSelected(rbtn_Si.getModel()) || grupo_Oferta.isSelected(rbtn_No.getModel());
+            String regla = "";
             if(precio <= 0)
                 JOptionPane.showMessageDialog(null, "Verifico el precio");
             if(piezas <= 0)
                 JOptionPane.showMessageDialog(null, "Verifique el número de piezas");
-            controlC.altaModelo(id, descripcion, precio, color, talla, piezas, oferta);
+            controlC.altaModelo(id, descripcion, precio, color, talla, piezas, regla);
         }
         catch(NumberFormatException E){
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");
@@ -212,7 +184,6 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
         txt_Color.setText("");
         txt_Talla.setText("");
         txt_Piezas.setText("");
-        grupo_Oferta.clearSelection();
         this.setVisible(false);
         controlC.ventanaAdministrarC();
     }//GEN-LAST:event_btn_RegresarActionPerformed
@@ -254,16 +225,12 @@ public class VentanaAltaModelo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Aceptar;
     private javax.swing.JButton btn_Regresar;
-    private javax.swing.ButtonGroup grupo_Oferta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JRadioButton rbtn_No;
-    private javax.swing.JRadioButton rbtn_Si;
     private javax.swing.JTextField txt_Color;
     private javax.swing.JTextField txt_Descripcion;
     private javax.swing.JTextField txt_Id;

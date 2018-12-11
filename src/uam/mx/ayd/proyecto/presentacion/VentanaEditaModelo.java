@@ -34,7 +34,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupo_Oferta = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_BuscaModelo = new javax.swing.JTextField();
@@ -46,15 +45,12 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         txt_Id = new javax.swing.JTextField();
         txt_Descripcion = new javax.swing.JTextField();
         txt_Precio = new javax.swing.JTextField();
         txt_Color = new javax.swing.JTextField();
         txt_Talla = new javax.swing.JTextField();
         txt_Piezas = new javax.swing.JTextField();
-        rbtn_Si = new javax.swing.JRadioButton();
-        rbtn_No = new javax.swing.JRadioButton();
         btn_Editar = new javax.swing.JButton();
         btn_Aceptar = new javax.swing.JButton();
         bnt_Regresar = new javax.swing.JButton();
@@ -118,9 +114,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Número de piezas: ");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("Oferta: ");
-
         txt_Id.setEnabled(false);
 
         txt_Descripcion.setEnabled(false);
@@ -133,14 +126,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
 
         txt_Piezas.setEnabled(false);
 
-        grupo_Oferta.add(rbtn_Si);
-        rbtn_Si.setText("Si");
-        rbtn_Si.setEnabled(false);
-
-        grupo_Oferta.add(rbtn_No);
-        rbtn_No.setText("No");
-        rbtn_No.setEnabled(false);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -148,28 +133,20 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_Id)
-                            .addComponent(txt_Descripcion)
-                            .addComponent(txt_Precio)
-                            .addComponent(txt_Color, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(txt_Talla)
-                            .addComponent(txt_Piezas)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(rbtn_Si)
-                        .addGap(42, 42, 42)
-                        .addComponent(rbtn_No)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_Id)
+                    .addComponent(txt_Descripcion)
+                    .addComponent(txt_Precio)
+                    .addComponent(txt_Color, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(txt_Talla)
+                    .addComponent(txt_Piezas))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -199,12 +176,7 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txt_Piezas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(rbtn_Si)
-                    .addComponent(rbtn_No))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         btn_Editar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -264,7 +236,7 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Editar)
                     .addComponent(btn_Aceptar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(bnt_Regresar)
                 .addContainerGap())
         );
@@ -289,8 +261,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         txt_Color.setText(m.getColor());
         txt_Talla.setText(m.getTalla());
         txt_Piezas.setText(String.valueOf(m.getNumeropzs()));
-        grupo_Oferta.setSelected(rbtn_Si.getModel(), m.isOferta());
-        grupo_Oferta.setSelected(rbtn_No.getModel(), m.isOferta());
     }//GEN-LAST:event_btn_BuscarActionPerformed
 
     private void btn_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarActionPerformed
@@ -300,15 +270,12 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         txt_Color.setEnabled(true);
         txt_Talla.setEnabled(true);
         txt_Piezas.setEnabled(true);
-        rbtn_Si.setEnabled(true);
-        rbtn_No.setEnabled(true);   
     }//GEN-LAST:event_btn_EditarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
         if(txt_Id.getText().isEmpty() || txt_Descripcion.getText().isEmpty() || 
                 txt_Precio.getText().isEmpty() || txt_Color.getText().isEmpty() ||
-                txt_Talla.getText().isEmpty() || txt_Piezas.getText().isEmpty() ||
-                !rbtn_Si.isSelected() || !rbtn_No.isSelected()){
+                txt_Talla.getText().isEmpty() || txt_Piezas.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Es necesario llenar todos los campos");
         }
         try{
@@ -319,12 +286,12 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
             String color = txt_Color.getText();
             String talla = txt_Talla.getText();
             int piezas = Integer.parseInt(txt_Piezas.getText());
-            boolean oferta = grupo_Oferta.isSelected(rbtn_Si.getModel()) || grupo_Oferta.isSelected(rbtn_No.getModel());
+            String regla = "";
             if(precio <= 0)
                 JOptionPane.showMessageDialog(null, "Verifico el precio");
             if(piezas <= 0)
                 JOptionPane.showMessageDialog(null, "Verifique el número de piezas");
-            controlC.editaModelo(id, descripcion, precio, color, talla, piezas, oferta, id2);
+            controlC.editaModelo(id, descripcion, precio, color, talla, piezas, regla, id2);
         }
         catch(NumberFormatException E){
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");
@@ -338,7 +305,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         txt_Color.setText("");
         txt_Talla.setText("");
         txt_Piezas.setText("");
-        grupo_Oferta.clearSelection();
         setVisible(false);
         controlC.ventanaAdministrarC();
     }//GEN-LAST:event_bnt_RegresarActionPerformed
@@ -382,7 +348,6 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
     private javax.swing.JButton btn_Aceptar;
     private javax.swing.JButton btn_Buscar;
     private javax.swing.JButton btn_Editar;
-    private javax.swing.ButtonGroup grupo_Oferta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -390,11 +355,8 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton rbtn_No;
-    private javax.swing.JRadioButton rbtn_Si;
     private javax.swing.JTextField txt_BuscaModelo;
     private javax.swing.JTextField txt_Color;
     private javax.swing.JTextField txt_Descripcion;
