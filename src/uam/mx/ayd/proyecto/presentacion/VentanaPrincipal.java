@@ -7,13 +7,13 @@ package uam.mx.ayd.proyecto.presentacion;
 
 import java.awt.event.WindowEvent;
 import uam.mx.ayd.proyecto.Aplicacion;
+import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 
 /**
  *
  * @author elxris
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
     Aplicacion aplicacion;
     
     /**
@@ -84,9 +84,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuInventario.add(jMenuItemStockMuerto);
 
         jMenuItemPrecioCantidad.setText("Definir Precio-Cantidad");
+        jMenuItemPrecioCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPrecioCantidadActionPerformed(evt);
+            }
+        });
         jMenuInventario.add(jMenuItemPrecioCantidad);
 
         jMenuItemAdministrarCatalogo.setText("Administrar Catalogo");
+        jMenuItemAdministrarCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAdministrarCatalogoActionPerformed(evt);
+            }
+        });
         jMenuInventario.add(jMenuItemAdministrarCatalogo);
 
         jMenuBar.add(jMenuInventario);
@@ -155,6 +165,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItemAdministrarCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdministrarCatalogoActionPerformed
+        aplicacion.AdministrarCatalogo();
+    }//GEN-LAST:event_jMenuItemAdministrarCatalogoActionPerformed
+
+    private void jMenuItemPrecioCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPrecioCantidadActionPerformed
+        // TODO add your handling code here:
+        aplicacion.definePrecioCantidad();
+    }//GEN-LAST:event_jMenuItemPrecioCantidadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,8 +5,11 @@
  */
 package uam.mx.ayd.proyecto;
 
+import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
 import uam.mx.ayd.proyecto.persistencia.DAOModelos;
+import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarCatalogo;
+import uam.mx.ayd.proyecto.presentacion.VentanaCantidadPrecio;
 import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 
 /**
@@ -16,6 +19,7 @@ import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 public class Aplicacion {
     
     DAOModelos modelos;
+    ControlCatalogo controlC;
     
     public static void main(String [] args){
         Aplicacion app = new Aplicacion();
@@ -35,4 +39,21 @@ public class Aplicacion {
     public void abreRevisionInventario() {
         ControlRevisionInventario control = new ControlRevisionInventario(modelos);
     }
+
+    
+    public void AdministrarCatalogo() {
+        VentanaAdministrarCatalogo ventanaAC = new VentanaAdministrarCatalogo(controlC);
+        ventanaAC.setVisible(true);
+    }
+
+    public void definePrecioCantidad() {
+        VentanaCantidadPrecio ventanaCP = new VentanaCantidadPrecio(controlC);
+        ventanaCP.setVisible(true);
+    }
+
+    public void verificaDatos(String usuario, String contrasena) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
