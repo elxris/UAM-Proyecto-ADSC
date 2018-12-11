@@ -47,6 +47,12 @@ public class ControlCatalogo {
         
         return m;
     }
+    public double damePrecio (int id){
+        Modelo m;
+        m = this.buscaModelo(id);
+        double precio = m.getPrecio();
+        return precio;
+    }
 
     public boolean bajaModelo(int id) {
         dao.bajaModelo(id);
