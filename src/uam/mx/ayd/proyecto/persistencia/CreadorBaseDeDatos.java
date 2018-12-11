@@ -23,7 +23,7 @@ public class CreadorBaseDeDatos {
             System.out.println("Tabla Usuarios creada");
             statement.execute("create table Ventas(IDVenta INTEGER PRIMARY KEY not null "
                     + "GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-                    + "numeroProductos int, subtotal double, total double, IVA double)");
+                    + "nombre varchar(40), fecha varchar(15), cantidad double, precio double, total double)");
             System.out.println("Tabla Ventas creada");
             //statement.execute("create table Ventas(ID venta INTEGER PRYMARY KEY not null,"        + "")
             ManejadorBD.termina();
