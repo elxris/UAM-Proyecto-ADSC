@@ -1,5 +1,6 @@
 package uam.mx.ayd.proyecto.negocio;
 
+import uam.mx.ayd.proyecto.Aplicacion;
 import uam.mx.ayd.proyecto.modelo.Modelo;
 import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarCatalogo;
@@ -9,6 +10,7 @@ import uam.mx.ayd.proyecto.presentacion.VentanaEditaModelo;
 
 public class ControlCatalogo {
     private DAOModelos dao;
+    private Aplicacion app;
     
     public ControlCatalogo(DAOModelos dao){
         this.dao = dao;
@@ -65,6 +67,14 @@ public class ControlCatalogo {
         return false;
                     
     }
+
+    public void defineRegla(Modelo m, String regla) {
+        dao.defineRegla(m, regla);
+    }
+
+    
+
+    
 
     
 }

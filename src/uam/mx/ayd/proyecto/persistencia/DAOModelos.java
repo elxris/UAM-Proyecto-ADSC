@@ -99,4 +99,17 @@ public class DAOModelos {
         }
         return m;
     }
+
+    public void defineRegla(Modelo m, String regla) {
+        try{
+            Statement st = ManejadorBD.dameConexion().createStatement();
+            st.executeUpdate("UPDATE Modelos SET reglaventa = "+regla+" WHERE IDmodelo = " + m.getId());
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+    }
+
+    
 }

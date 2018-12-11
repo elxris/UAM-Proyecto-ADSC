@@ -5,8 +5,10 @@
  */
 package uam.mx.ayd.proyecto;
 
+import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 import uam.mx.ayd.proyecto.negocio.ControlRevisionInventario;
 import uam.mx.ayd.proyecto.persistencia.DAOModelos;
+import uam.mx.ayd.proyecto.presentacion.VentanaAdministrarCatalogo;
 import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 
 /**
@@ -16,6 +18,7 @@ import uam.mx.ayd.proyecto.presentacion.VentanaPrincipal;
 public class Aplicacion {
     
     DAOModelos modelos;
+    ControlCatalogo controlC;
     
     public static void main(String [] args){
         Aplicacion app = new Aplicacion();
@@ -35,4 +38,12 @@ public class Aplicacion {
     public void revisarInventario() {
         ControlRevisionInventario control = new ControlRevisionInventario(modelos);
     }
+
+    
+    public void AdministrarCatalogo() {
+        VentanaAdministrarCatalogo ventanaAC = new VentanaAdministrarCatalogo(controlC);
+        ventanaAC.setVisible(true);
+    }
+
+    
 }

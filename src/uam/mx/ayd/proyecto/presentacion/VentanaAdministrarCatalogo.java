@@ -1,6 +1,6 @@
 package uam.mx.ayd.proyecto.presentacion;
 
-import proyectoadsc.ProyectoADSC;
+import uam.mx.ayd.proyecto.Aplicacion;
 import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 
 /**
@@ -9,6 +9,7 @@ import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
  */
 public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
     private ControlCatalogo controlC;
+    private Aplicacion app;
     
     
     /**
@@ -65,6 +66,11 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
 
         btn_Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_Regresar.setText("Regresar");
+        btn_Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,6 +116,10 @@ public class VentanaAdministrarCatalogo extends javax.swing.JFrame {
     private void btn_bajaModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bajaModeloActionPerformed
         controlC.ventanaBaja();
     }//GEN-LAST:event_btn_bajaModeloActionPerformed
+
+    private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
+        app.inicia();
+    }//GEN-LAST:event_btn_RegresarActionPerformed
 
     /**
      * @param args the command line arguments

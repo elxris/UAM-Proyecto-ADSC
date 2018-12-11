@@ -296,6 +296,8 @@ public class VentanaEditaModelo extends javax.swing.JFrame {
         catch(NumberFormatException E){
            JOptionPane.showMessageDialog(null, "Verifique el precio o el número de piezas");
         }
+        controlC.ventanaAdministrarC();
+        setVisible(false);
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     private void bnt_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_RegresarActionPerformed

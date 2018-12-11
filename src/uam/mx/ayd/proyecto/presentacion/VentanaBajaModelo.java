@@ -205,6 +205,8 @@ public class VentanaBajaModelo extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Error al eliminar el modelo");
         }
+        controlC.ventanaAdministrarC();
+        setVisible(false);
     }//GEN-LAST:event_btn_EliminarActionPerformed
 
     private void btn_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegresarActionPerformed
