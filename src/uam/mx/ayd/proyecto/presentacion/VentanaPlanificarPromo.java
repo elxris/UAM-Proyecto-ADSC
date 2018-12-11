@@ -1,4 +1,6 @@
 package uam.mx.ayd.proyecto.presentacion;
+import uam.mx.ayd.proyecto.modelo.Modelo;
+import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,6 +13,7 @@ package uam.mx.ayd.proyecto.presentacion;
  * @author Espinoza García Victoria Isabella
  */
 public class VentanaPlanificarPromo extends javax.swing.JFrame {
+    ControlCatalogo control;
 
     /**
      * Creates new form DefinirOferta
@@ -42,12 +45,12 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNuevoPrecio = new javax.swing.JTextField();
         jButtonEditarPrecio = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jButtonProducto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        String [] columnNames = {"Código", "Nombre", "Semanas en inventario", "Precio"};
-        jTableModelosViejos = new javax.swing.JTable(columnNames);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jLista = new javax.swing.JList<>();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Código de modelo:");
@@ -171,14 +174,26 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Planificación Promos");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Planificación de promociones");
 
+        jButtonProducto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonProducto.setText("Ver producto");
-        jButtonProducto.setEnabled(false);
         jButtonProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonProductoActionPerformed(evt);
@@ -187,40 +202,48 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
 
         jButton2.setText("Cerrar");
 
-        jTableModelosViejos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane3.setViewportView(jTableModelosViejos);
+        jLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLista.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jLista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton2)
-                        .addGap(330, 330, 330)
-                        .addComponent(jButtonProducto))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(285, 285, 285)
+                                .addComponent(jButtonProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(383, 383, 383))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(265, 265, 265))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2)
-                    .addComponent(jButtonProducto))
-                .addContainerGap(158, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,6 +260,9 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
 
     private void jButtonProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductoActionPerformed
         // TODO add your handling code here:
+        int code = jLista.getSelectedIndex();
+        Modelo m = control.buscaModelo(code);
+        jDialogEditar.setVisible(true);
     }//GEN-LAST:event_jButtonProductoActionPerformed
 
     /**
@@ -278,6 +304,7 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonEditarPrecio;
     private javax.swing.JButton jButtonProducto;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialogEditar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -289,9 +316,8 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRecom;
     private javax.swing.JLabel jLabelRecomendado;
     private javax.swing.JLabel jLabelTiempo;
+    private javax.swing.JList<String> jLista;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTableModelosViejos;
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldDescrip;
     private javax.swing.JTextField jTextFieldNuevoPrecio;

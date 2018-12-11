@@ -5,19 +5,24 @@
  */
 package uam.mx.ayd.proyecto.presentacion;
 import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
+import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 
 /**
  *
  * @author Vicky
  */
 public class VentanaConsultarPrecio extends javax.swing.JFrame {
-    private ControlCatalogo control;
+    DAOModelos dao;
     /**
      * Creates new form VentanaConsultarPrecio
      */
     
     public VentanaConsultarPrecio() {
         initComponents();
+    }
+
+    public VentanaConsultarPrecio(ControlCatalogo aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -29,20 +34,23 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        jDialogMuestra = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jButtonDone = new javax.swing.JButton();
         jLabelPrecio = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabelNumber = new javax.swing.JLabel();
+        jDialog2 = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jTextFieldCodigoProducto = new javax.swing.JTextField();
         jButtonConsultar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        jDialog1.setTitle("Precio de artículo");
+        jDialogMuestra.setTitle("Precio de artículo");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Precio de producto:");
@@ -73,40 +81,40 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
         jLabelNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNumber.setText("00000");
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDialogMuestraLayout = new javax.swing.GroupLayout(jDialogMuestra.getContentPane());
+        jDialogMuestra.getContentPane().setLayout(jDialogMuestraLayout);
+        jDialogMuestraLayout.setHorizontalGroup(
+            jDialogMuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogMuestraLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(130, 130, 130))
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+            .addGroup(jDialogMuestraLayout.createSequentialGroup()
+                .addGroup(jDialogMuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialogMuestraLayout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(jButtonDone, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(jDialogMuestraLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jLabel3))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(jDialogMuestraLayout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGroup(jDialogMuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDialogMuestraLayout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addComponent(jLabel5))
                             .addComponent(jLabelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jDialogMuestraLayout.setVerticalGroup(
+            jDialogMuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogMuestraLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jDialogMuestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -116,6 +124,42 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jButtonDone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jDialog2.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jDialog2.setTitle("Error");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("No se encontró artículo");
+
+        jButton1.setText("Cerrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(44, 44, 44))
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -202,12 +246,18 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
+        ControlCatalogo control = new ControlCatalogo(dao);
         String codigo = jTextFieldCodigoProducto.getText();
+        try{ 
         int code = Integer.parseInt(codigo);
         double precio = control.damePrecio(code);
         jLabelPrecio.setText(Double.toString(precio));
         jLabelNumber.setText(Integer.toString(code));
-        jDialog1.setVisible(true);
+        jDialogMuestra.setVisible(true);
+        }
+        catch (NumberFormatException e){
+            jDialog2.setVisible(true);
+        }
 
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
@@ -219,8 +269,13 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
 
     private void jButtonDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoneActionPerformed
         // TODO add your handling code here:
-        jDialog1.setVisible(false);
+        jDialogMuestra.setVisible(false);
     }//GEN-LAST:event_jButtonDoneActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jDialog2.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,15 +313,18 @@ public class VentanaConsultarPrecio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonDone;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialogMuestra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelNumber;
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JTextField jTextFieldCodigoProducto;
