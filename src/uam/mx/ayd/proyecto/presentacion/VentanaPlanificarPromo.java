@@ -1,6 +1,7 @@
 package uam.mx.ayd.proyecto.presentacion;
 import uam.mx.ayd.proyecto.modelo.Modelo;
 import uam.mx.ayd.proyecto.negocio.ControlCatalogo;
+import uam.mx.ayd.proyecto.persistencia.DAOModelos;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -203,11 +204,6 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
         jButton2.setText("Cerrar");
 
         jLista.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jLista);
 
@@ -260,8 +256,8 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
 
     private void jButtonProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductoActionPerformed
         // TODO add your handling code here:
-        int code = jLista.getSelectedIndex();
-        Modelo m = control.buscaModelo(code);
+        //int code = jLista.getSelectedIndex();
+        //Modelo m = control.buscaModelo(code);
         jDialogEditar.setVisible(true);
     }//GEN-LAST:event_jButtonProductoActionPerformed
 
@@ -296,6 +292,12 @@ public class VentanaPlanificarPromo extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPlanificarPromo().setVisible(true);
+                DAOModelos dao = null;
+                int mod = dao.cuantosModelos();
+                Modelo[] modelos = dao.dameModelos();
+                for (int i = 0; i<mod; i++){
+                jLista.addElement(modelos[i].getId());
+            }
             }
         });
     }
